@@ -1,4 +1,4 @@
-package hello;
+package com.app.triagle.utils;
 
 import org.springframework.util.StringUtils;
 
