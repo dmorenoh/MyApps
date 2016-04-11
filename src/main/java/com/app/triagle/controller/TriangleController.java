@@ -1,7 +1,6 @@
 package com.app.triagle.controller;
 
 import com.app.triagle.model.Triangle;
-import com.app.triagle.model.TriangleType;
 import com.app.triagle.service.TriangleOperationsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -22,11 +21,14 @@ public class TriangleController {
     @Autowired
     private TriangleOperationsService triangleOperationsService;
 
-    @RequestMapping(value = "/triangle/side1/{side1}/side2/{side2}/side3/{side3}", method= RequestMethod.GET)
+    @RequestMapping(value = "/triangle/side1/{side1}/side2/{side2}/side3/{side3}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    public @ResponseBody Triangle getTriangleTypeBySides(@PathVariable("side1") int side1,
-                                  @PathVariable("side2") int side2,
-                                  @PathVariable("side3") int side3) {
+    public
+    @ResponseBody
+    Triangle getTriangleTypeBySides(
+            @PathVariable("side1") int side1,
+            @PathVariable("side2") int side2,
+            @PathVariable("side3") int side3) {
         Triangle triangle = new Triangle(side1, side2, side3);
         triangle.setTriangleType(triangleOperationsService.determineTriangleType(triangle).name());
         return triangle;

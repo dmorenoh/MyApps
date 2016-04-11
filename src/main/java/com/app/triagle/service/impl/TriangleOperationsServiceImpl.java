@@ -30,7 +30,7 @@ public class TriangleOperationsServiceImpl implements TriangleOperationsService 
             return TriangleType.EQUILATERAL;
         }
 
-        if (triangleHelper.isIsosceles(triangle)){
+        if (triangleHelper.isIsosceles(triangle)) {
             return TriangleType.ISOSCELES;
         }
 
